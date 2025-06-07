@@ -1,6 +1,6 @@
 <div class="login-container" @topIn @fadeInOut>
   <div class="logo-container">
-    <img src="assets/logo.svg" alt="logo" />
+    <img src="logo.svg" alt="logo" />
     <h3>LETS GET YOU STARTED</h3>
   </div>
   <div class="divider-container">
@@ -11,13 +11,13 @@
   <div class="icon-button-container">
     @if(!isLoading){
     <button class="icon-button google" (click)="handleLogin('google')">
-      <img src="assets/google.png" alt="google" />
+      <img src="google.png" alt="google" />
     </button>
     <button class="icon-button apple" (click)="handleLogin('apple')">
-      <img src="assets/apple.png" alt="apple" />
+      <img src="apple.png" alt="apple" />
     </button>
     <button class="icon-button facebook" (click)="handleLogin('facebook')">
-      <img src="assets/facebook.png" alt="facebook" />
+      <img src="facebook.png" alt="facebook" />
     </button>
     }@else {
     <app-loading-ripple></app-loading-ripple>

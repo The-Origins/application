@@ -10,17 +10,17 @@ import { CommonModule } from '@angular/common';
 export class AmenitiesComponent {
   @Input() amenities: string[] = [];
   icons: Record<string, string> = {
-    workdesk: 'assets/workdesk.svg',
-    'bed & breakfast': 'assets/bed-and-breakfast.svg',
-    spa: 'assets/spa.svg',
-    gym: 'assets/gym.svg',
-    'heated pool': 'assets/heated-pool.svg',
-    dinner: 'assets/dinner.svg',
-    conferencing: 'assets/conferencing.svg',
-    bathtub: 'assets/bathtub.svg',
-    concierge: 'assets/concierge.svg',
-    massage: 'assets/massage.svg',
-    '24Hr service': 'assets/service.svg',
-    security: 'assets/security.svg',
+    workdesk: 'workdesk.svg',
+    'bed & breakfast': 'bed-and-breakfast.svg',
+    spa: 'spa.svg',
+    gym: 'gym.svg',
+    'heated pool': 'heated-pool.svg',
+    dinner: 'dinner.svg',
+    conferencing: 'conferencing.svg',
+    bathtub: 'bathtub.svg',
+    concierge: 'concierge.svg',
+    massage: 'massage.svg',
+    '24Hr service': 'service.svg',
+    security: 'security.svg',
   };
 }

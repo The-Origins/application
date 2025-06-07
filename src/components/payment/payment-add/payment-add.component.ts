@@ -21,13 +21,13 @@ export class PaymentAddComponent {
   getPaymentMethodIcon(type: string) {
     switch (type) {
       case 'card':
-        return 'assets/card-payment.svg';
+        return 'card-payment.svg';
       case 'paypal':
-        return 'assets/paypal.svg';
+        return 'paypal.svg';
       case 'mpesa':
-        return 'assets/mpesa.svg';
+        return 'mpesa.svg';
       default:
-        return 'assets/cash.svg';
+        return 'cash.svg';
     }
   }
 }
