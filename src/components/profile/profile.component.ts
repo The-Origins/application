@@ -82,13 +82,13 @@ export class ProfileComponent {
   getPaymentMethodIcon(type: string) {
     switch (type) {
       case 'card':
-        return '/assets/icons/card-payment.svg';
+        return 'assets/card-payment.svg';
       case 'paypal':
-        return '/assets/icons/paypal.svg';
+        return 'assets/paypal.svg';
       case 'mpesa':
-        return '/assets/icons/mpesa.svg';
+        return 'assets/mpesa.svg';
       default:
-        return '/assets/icons/cash.svg';
+        return 'assets/cash.svg';
     }
   }
 
