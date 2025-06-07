@@ -2,7 +2,7 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: 'https://the-origins.github.io/application/',
+  baseHref: '/application/',
   locale: undefined,
   routes: undefined,
   entryPointToBrowserMapping: {
@@ -26,8 +26,8 @@ export default {
   ]
 },
   assets: {
-    'index.csr.html': {size: 26703, hash: '645f8b84ffba0404f27d4f8c60e8882cb899e4537d255a3b84764fa36ff8ded4', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 26483, hash: '56bfce482898d1aad4a5e113cba76910e3f7106f3d9a0ed4fe6a117c382c4661', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 26674, hash: 'fb54e5c696cfa19a0b4c8a79d2bb1826c42024f7a248d624bb7f34453fef1f27', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 26454, hash: 'ddc0066360119eda510e2113654919e2ade1456230e10c05ee974c59f8729c5f', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
     'styles-TOVPNZDO.css': {size: 2345, hash: '8O0+flXQ9gU', text: () => import('./assets-chunks/styles-TOVPNZDO_css.mjs').then(m => m.default)}
   },
 };

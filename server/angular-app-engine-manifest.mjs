@@ -1,6 +1,6 @@
 
 export default {
-  basePath: 'https://the-origins.github.io/application',
+  basePath: '/application',
   supportedLocales: {
   "en-US": ""
 },
