@@ -1,59 +1,132 @@
-# Application
+# Jacaranda Hotel Booking Engine
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+A modern hotel booking application built with Angular 19, featuring a comprehensive booking system with real-time room availability, secure payments, and user management.
 
-## Development server
+## Tech Stack
 
-To start a local development server, run:
+- **Frontend Framework**: Angular 19.2
+- **UI Components**: Angular Material 19.2
+- **State Management**: RxJS 7.8
+- **Server**: Express 4.18
+- **Validation**:
+  - Card Validator 10.0.2
+  - libphonenumber-js 1.12.9
+- **Testing**: Jasmine & Karma
+
+## Project Structure
+
+```
+src/
+├── app/                    # Core application module
+├── components/            # Reusable UI components
+│   ├── booking/          # Booking flow components
+│   ├── booking-room/     # Room selection components
+│   ├── checkout/         # Checkout process components
+│   ├── country-select/   # Country selection component
+│   ├── footer/           # Application footer
+│   ├── header/           # Application header
+│   ├── input-field/      # Custom input components
+│   ├── location-nav/     # Location navigation
+│   ├── login/            # Authentication components
+│   ├── main/             # Main layout components
+│   ├── payment/          # Payment processing components
+│   ├── profile/          # User profile components
+│   ├── queryForm/        # Search query components
+│   ├── results/          # Search results display
+│   ├── room/             # Room details components
+│   ├── roomCard/         # Room card components
+│   └── status/           # Status indicators
+├── services/             # Application services
+│   ├── booking-form/     # Booking form logic
+│   ├── query-form/       # Search query handling
+│   ├── room/            # Room management
+│   ├── steps/           # Booking steps management
+│   └── user/            # User management
+├── animations/           # Animation definitions
+├── data/                # Data models and interfaces
+├── directives/          # Custom directives
+├── lib/                 # Shared utilities
+├── pipes/               # Custom pipes
+└── types/               # TypeScript type definitions
+```
+
+## Features
+
+- **Booking Management**
+
+  - Multi-step booking process
+  - Real-time room availability
+  - Room type selection
+  - Booking confirmation
+
+- **User Experience**
+
+  - Responsive design
+  - Location-based navigation
+  - Country selection
+  - Loading indicators
+
+- **Payment Processing**
+
+  - Secure payment handling
+  - Card validation
+  - Checkout process
+
+- **User Management**
+  - User authentication
+  - Profile management
+  - Booking history
+
+## Development
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm (v9 or higher)
+- Angular CLI 19.2.13
+
+### Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+3. Build for production:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Testing
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Run unit tests:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Run end-to-end tests:
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Server-Side Rendering
 
-## Additional Resources
+The application supports Server-Side Rendering (SSR) using Angular Universal. To run the SSR version:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run serve:ssr:application
+```
+
+## License
+
+This project is licensed under the MIT License.

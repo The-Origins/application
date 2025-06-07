@@ -1,0 +1,213 @@
+<div class="checkout">
+  <div class="checkout-header">
+    <div class="navigation-buttons">
+      <button class="navigation-button" (click)="handleBack()">
+        <mat-icon>keyboard_return</mat-icon>
+      </button>
+    </div>
+    <div class="checkout-header-content">
+      <h4>Reservation Summary</h4>
+      <p>
+        Please review your booking details and make any necessary changes. Once
+        you are satisfied with your booking, please select a payment method to
+        complete your reservation.
+      </p>
+    </div>
+  </div>
+  <div class="checkout-content">
+    <div class="container booking-details">
+      <div class="info">
+        <h3>{{ bookingForm.room.name }}</h3>
+        <div class="divider"></div>
+        <div class="booking-details-row">
+          <p>Room Count</p>
+          <h6>{{ bookingForm.room.count }}</h6>
+        </div>
+        <div class="divider"></div>
+        <div class="booking-details-row">
+          <p>Taxes</p>
+          <h6>
+            <span>{{ bookingForm.price.currency }}</span>
+            {{ bookingForm.price.tax | number : "1.0-0" }}
+          </h6>
+        </div>
+        <div class="divider"></div>
+        <div class="booking-details-row">
+          <p>Total</p>
+          <h5>
+            <span>{{ bookingForm.price.currency }}</span>
+            {{ bookingForm.price.total | number : "1.0-0" }}
+          </h5>
+        </div>
+      </div>
+      <button (click)="handleBack()">Edit Reservation</button>
+    </div>
+    <div class="container date-details-container">
+      <div class="date-details">
+        <div class="date-details-row-container">
+          <div class="date-details-row">
+            <h6>Check In</h6>
+            <div>
+              <h5>{{ bookingForm.checkIn | date : "EEE" }}</h5>
+              <h4>{{ bookingForm.checkIn | date : "dd" }}</h4>
+              <p>{{ bookingForm.checkIn | date : "MMM YYYY" }}</p>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="date-details-row">
+            <h6>Check Out</h6>
+            <div>
+              <h5>{{ bookingForm.checkOut | date : "EEE" }}</h5>
+              <h4>{{ bookingForm.checkOut | date : "dd" }}</h4>
+              <p>{{ bookingForm.checkOut | date : "MMM YYYY" }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="date-total">
+          <mat-icon>nights_stay</mat-icon>
+          <div>
+            <p>{{ nights }}</p>
+            <h5>Night{{ nights !== 1 ? "s" : "" }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container user-details">
+      <p>Personal Information</p>
+      <form [formGroup]="userDetailsForm">
+        <div class="input-field">
+          <input
+            [class.error]="touched.firstName && errors.firstName"
+            name="firstName"
+            type="text"
+            placeholder="First Name*"
+            formControlName="firstName"
+            (blur)="handleBlur($event)"
+          />
+          <p>
+            {{
+              touched.firstName && errors.firstName
+                ? "first name " + errors.firstName
+                : " "
+            }}
+          </p>
+        </div>
+        <div class="input-field">
+          <input
+            [class.error]="touched.lastName && errors.lastName"
+            name="lastName"
+            type="text"
+            placeholder="Last Name*"
+            formControlName="lastName"
+            (blur)="handleBlur($event)"
+          />
+          <p>
+            {{
+              touched.lastName && errors.lastName
+                ? "last name " + errors.lastName
+                : " "
+            }}
+          </p>
+        </div>
+        <div class="input-field">
+          <input
+            [class.error]="touched.email && errors.email"
+            name="email"
+            type="email"
+            placeholder="Email*"
+            formControlName="email"
+            (blur)="handleBlur($event)"
+          />
+          <p>
+            {{ touched.email && errors.email ? errors.email : " " }}
+          </p>
+        </div>
+        <div class="input-field">
+          <input
+            [class.error]="touched.phone && errors.phone"
+            name="phone"
+            type="tel"
+            placeholder="Phone Number*"
+            formControlName="phone"
+            (blur)="handleBlur($event)"
+          />
+          <p>
+            {{ touched.phone && errors.phone ? errors.phone : " " }}
+          </p>
+        </div>
+        <div style="width: 100%; height: 100%">
+          <app-country-select
+            [country]="userDetailsForm.value.country"
+            [error]="errors.country"
+            [touched]="touched.country"
+            (onSelect)="handleCountrySelect($event)"
+            (onBlur)="handleCountryBlur()"
+          ></app-country-select>
+        </div>
+        <div class="input-field">
+          <input
+            [class.error]="touched.city && errors.city"
+            name="city"
+            type="text"
+            placeholder="City*"
+            formControlName="city"
+            (blur)="handleBlur($event)"
+          />
+          <p>
+            {{ touched.city && errors.city ? "city " + errors.city : " " }}
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="payment-details">
+      <div class="container requests">
+        <p>Special requests</p>
+        <div class="requests-textarea">
+          <textarea
+            name="requests"
+            [formControl]="requests"
+            rows="5"
+            placeholder="Enter your special requests"
+            (blur)="handleBlur($event)"
+            [class.error]="touched.requests && errors.requests"
+          ></textarea>
+          <p [class.error]="touched.requests && errors.requests">
+            {{
+              touched.requests
+                ? errors.requests
+                  ? "requests " + errors.requests
+                  : requests.value?.length + "/200"
+                : " "
+            }}
+          </p>
+        </div>
+      </div>
+      <div class="container payment-method">
+        <p>Payment Method</p>
+        <button (click)="handlePayment('mpesa')">
+          <img src="/assets/icons/mpesa.svg" alt="mpesa" />
+          <p>Pay with M-Pesa</p>
+        </button>
+        <button (click)="handlePayment('card')">
+          <img src="/assets/icons/card-payment.svg" alt="card-payment" />
+          <p>Pay with Card</p>
+        </button>
+        <button (click)="handlePayment('paypal')">
+          <img src="/assets/icons/paypal.svg" alt="paypal" />
+          <p>Pay with PayPal</p>
+        </button>
+        <button (click)="handlePayment('cash')">
+          <img src="/assets/icons/cash.svg" alt="cash" />
+          <p>Pay with Cash</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+@if(paymentModalType) {
+<app-payment-modal
+  [type]="paymentModalType"
+  (onClose)="handlePaymentClose()"
+></app-payment-modal>
+}

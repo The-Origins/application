@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="main-container" @bottomIn @fadeInOut>
+  <div class="landing-container">
+    <div class="landing-content">
+      <img src="/assets/icons/logo.svg" alt="icon" class="logo" />
+      <div style="width: 100%">
+        <app-location-nav></app-location-nav>
+      </div>
+      <div class="crystal-container">
+        <div class="crystal"></div>
+        <h1>DIRECT BOOKING</h1>
+        <div class="crystal right"></div>
+      </div>
+      <p>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+        in voluptate velit esse cillum dolore eu
+      </p>
+    </div>
+    <app-query-form (onSubmit)="handleQuerySubmit()"></app-query-form>
+  </div>
+  <app-results></app-results>
+  <app-footer></app-footer>
+</div>

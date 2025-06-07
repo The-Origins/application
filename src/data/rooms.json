@@ -1,0 +1,298 @@
+{
+  "room 1": {
+    "id": "room 1",
+    "name": "Standard Room",
+    "location": {
+      "title": "Nairobi",
+      "link": "https://www.google.com"
+    },
+    "capacity": {
+      "total": 4,
+      "adults": 4,
+      "children": 3,
+      "infants": 2
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    "images": [
+      "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/8092426/pexels-photo-8092426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/6700033/pexels-photo-6700033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    ],
+    "amenities": [
+      "workdesk",
+      "bed & breakfast",
+      "spa",
+      "gym",
+      "heated pool",
+      "dinner",
+      "conferencing",
+      "bathtub",
+      "concierge",
+      "massage",
+      "24Hr service",
+      "security"
+    ],
+    "rating": 3.5,
+    "count": 10,
+    "price": {
+      "amount": 10000,
+      "tax": 1000,
+      "currency": "KES",
+      "breakdown": [
+        {
+          "title": "General Accommodation",
+          "amount": 70000
+        },
+        {
+          "title": "Service Fee",
+          "amount": 1000
+        },
+        {
+          "title": "Extras",
+          "amount": 1000
+        },
+        {
+          "title": "VAT",
+          "amount": 1000
+        }
+      ]
+    },
+    "types": {
+      "single": 0,
+      "double": 5000,
+      "queen": 10000
+    }
+  },
+  "room 2": {
+    "id": "room 2",
+    "name": "Garden Room",
+    "location": {
+      "title": "Indian Ocean Beach Resort",
+      "link": "https://www.google.com"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    "images": [
+      "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/8092426/pexels-photo-8092426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/6700033/pexels-photo-6700033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    ],
+    "amenities": [
+      "workdesk",
+      "bed & breakfast",
+      "spa",
+      "gym",
+      "heated pool",
+      "dinner",
+      "conferencing",
+      "bathtub",
+      "concierge",
+      "massage",
+      "24Hr service",
+      "security"
+    ],
+    "rating": 4.0,
+    "count": 8,
+    "price": {
+      "amount": 15000,
+      "tax": 1000,
+      "currency": "KES",
+      "breakdown": [
+        {
+          "title": "General Accommodation",
+          "amount": 70000
+        },
+        {
+          "title": "Service Fee",
+          "amount": 1000
+        },
+        {
+          "title": "Extras",
+          "amount": 1000
+        },
+        {
+          "title": "VAT",
+          "amount": 1000
+        }
+      ]
+    },
+    "types": {
+      "single": 0,
+      "double": 10000,
+      "queen": 20000
+    }
+  },
+  "room 3": {
+    "id": "room 3",
+    "name": "Queen Luxury Room",
+    "location": {
+      "title": "Lake Elementaita Lodge",
+      "link": "https://www.google.com"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    "images": [
+      "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/8092426/pexels-photo-8092426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/6700033/pexels-photo-6700033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    ],
+    "amenities": [
+      "workdesk",
+      "bed & breakfast",
+      "spa",
+      "gym",
+      "heated pool",
+      "dinner",
+      "conferencing",
+      "bathtub",
+      "concierge",
+      "massage",
+      "24Hr service",
+      "security"
+    ],
+    "rating": 4.3,
+    "count": 5,
+    "price": {
+      "amount": 20000,
+      "tax": 1000,
+      "currency": "KES",
+      "breakdown": [
+        {
+          "title": "General Accommodation",
+          "amount": 140000
+        },
+        {
+          "title": "Service Fee",
+          "amount": 3000
+        },
+        {
+          "title": "Extras",
+          "amount": 2000
+        },
+        {
+          "title": "VAT",
+          "amount": 1000
+        }
+      ]
+    },
+    "types": {
+      "queen": 0,
+      "king": 20000
+    }
+  },
+  "room 4": {
+    "id": "room 4",
+    "name": "Ocean View Room",
+    "location": {
+      "title": "Indian Ocean Beach Resort",
+      "link": "https://www.google.com"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    "images": [
+      "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/8092426/pexels-photo-8092426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/6700033/pexels-photo-6700033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    ],
+    "amenities": [
+      "workdesk",
+      "bed & breakfast",
+      "spa",
+      "gym",
+      "heated pool",
+      "dinner",
+      "conferencing",
+      "bathtub",
+      "concierge",
+      "massage",
+      "24Hr service",
+      "security"
+    ],
+    "rating": 4.8,
+    "count": 6,
+    "price": {
+      "amount": 25000,
+      "tax": 1000,
+      "currency": "KES",
+      "breakdown": [
+        {
+          "title": "General Accommodation",
+          "amount": 19000
+        },
+        {
+          "title": "Service Fee",
+          "amount": 3000
+        },
+        {
+          "title": "Extras",
+          "amount": 2000
+        },
+        {
+          "title": "VAT",
+          "amount": 1000
+        }
+      ]
+    },
+    "types": {
+      "single": 0,
+      "double": 15000,
+      "queen": 25000
+    }
+  },
+  "room 5": {
+    "id": "room 5",
+    "name": "Beach Front Room",
+    "location": {
+      "title": "Indian Ocean Beach Resort",
+      "link": "https://www.google.com"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    "images": [
+      "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/8092426/pexels-photo-8092426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/6700033/pexels-photo-6700033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    ],
+    "amenities": [
+      "workdesk",
+      "bed & breakfast",
+      "spa",
+      "gym",
+      "heated pool",
+      "dinner",
+      "conferencing",
+      "bathtub",
+      "concierge",
+      "massage",
+      "24Hr service",
+      "security"
+    ],
+    "rating": 4.5,
+    "count": 4,
+    "price": {
+      "amount": 30000,
+      "tax": 1000,
+      "currency": "KES",
+      "breakdown": [
+        {
+          "title": "General Accommodation",
+          "amount": 23000
+        },
+        {
+          "title": "Service Fee",
+          "amount": 5000
+        },
+        {
+          "title": "Extras",
+          "amount": 1000
+        },
+        {
+          "title": "VAT",
+          "amount": 1000
+        }
+      ]
+    },
+    "types": {
+      "single": 0,
+      "double": 20000,
+      "queen": 30000,
+      "king": 40000
+    }
+  }
+}

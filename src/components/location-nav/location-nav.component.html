@@ -1,0 +1,20 @@
+<div class="location-nav-container">
+  @for (location of locations; track location; let i = $index) {
+  <button
+    [class]="
+      'location-nav-btn ' +
+      (queryForm.value.location === location ? 'active' : '')
+    "
+    [attr.data-index]="i"
+    #btn
+    (click)="handleChange(location, btn)"
+  >
+    {{ location | uppercase }}
+  </button>
+  }
+  <div
+    class="location-nav-dash"
+    [style.left.px]="dashLeft"
+    [style.width.px]="dashWidth"
+  ></div>
+</div>

@@ -1,0 +1,37 @@
+.board-type-btn-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: unset;
+}
+
+.board-type-btn-group .outline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.board-type-btn-group button {
+  background: transparent;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  color: var(--text-main);
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.board-type-btn-group button.active {
+  color: var(--primary-color);
+}
+
+.divider {
+  width: 100%;
+  height: 0.5px;
+  background: var(--text-light);
+}

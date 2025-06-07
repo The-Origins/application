@@ -1,0 +1,193 @@
+@if(user){
+<div class="profile" @leftIn @fadeInOut>
+  <div class="profile-header">
+    <button class="navigation-button" (click)="handleBack()">
+      <mat-icon>keyboard_return</mat-icon>
+    </button>
+    <button class="navigation-button" (click)="handleHome()">
+      <mat-icon>home</mat-icon>
+    </button>
+  </div>
+  @if(user.isLoading){
+  <div class="profile-loading">
+    <app-loading-ripple width="80px" height="80px"></app-loading-ripple>
+  </div>
+  }@if(user.data){
+  <div class="profile-info">
+    <div class="profile-info-header">
+      <mat-icon>account_circle</mat-icon>
+      <div class="profile-info-header-text">
+        <h3>{{ user.data.name.first }} {{ user.data.name.last }}</h3>
+        <p>{{ user.data.email }}</p>
+      </div>
+    </div>
+    <button class="logout-button" type="button" (click)="handleLogout()">
+      <mat-icon>logout</mat-icon>
+      <p>logout</p>
+    </button>
+    @if(changed.firstName || changed.lastName || changed.email || changed.phone
+    || changed.country || changed.city){
+    <button
+      (click)="handleSubmit()"
+      class="edit-button"
+      type="submit"
+      [disabled]="
+        errors.firstName ||
+        errors.lastName ||
+        errors.email ||
+        errors.phone ||
+        errors.country ||
+        errors.city
+      "
+    >
+      <mat-icon>save</mat-icon>
+      <span>Save</span>
+      <p>Changes</p>
+    </button>
+    }
+  </div>
+  <form [formGroup]="userForm" class="profile-form">
+    <div class="profile-card">
+      <h3>Name</h3>
+      <div class="input-field">
+        <input
+          name="firstName"
+          type="text"
+          formControlName="firstName"
+          placeholder="First Name"
+          (blur)="handleBlur('firstName')"
+          [class.error]="touched.firstName && errors.firstName"
+        />
+        <p>
+          {{ touched.firstName && errors.firstName ? errors.firstName : " " }}
+        </p>
+      </div>
+      <div class="input-field">
+        <input
+          name="lastName"
+          type="text"
+          formControlName="lastName"
+          placeholder="Last Name"
+          (blur)="handleBlur('lastName')"
+          [class.error]="touched.lastName && errors.lastName"
+        />
+        <p>
+          {{ touched.lastName && errors.lastName ? errors.lastName : " " }}
+        </p>
+      </div>
+    </div>
+    <div class="profile-card">
+      <h3>Contacts</h3>
+      <div class="input-field">
+        <input
+          name="email"
+          type="text"
+          formControlName="email"
+          placeholder="Email"
+          (blur)="handleBlur('email')"
+          [class.error]="touched.email && errors.email"
+        />
+        <p>
+          {{ touched.email && errors.email ? errors.email : " " }}
+        </p>
+      </div>
+      <div class="input-field">
+        <input
+          name="phone"
+          type="text"
+          formControlName="phone"
+          placeholder="Phone"
+          (blur)="handleBlur('phone')"
+          [class.error]="touched.phone && errors.phone"
+        />
+        <p>
+          {{ touched.phone && errors.phone ? errors.phone : " " }}
+        </p>
+      </div>
+    </div>
+    <div class="profile-card">
+      <h3>Address</h3>
+      <div class="input-field">
+        <div style="height: 100%; width: 100%">
+          <app-country-select
+            [country]="userForm.value.country"
+            [error]="errors.country"
+            [touched]="touched.country"
+            (onSelect)="handleCountrySelect($event)"
+            (onBlur)="handleBlur('country')"
+          ></app-country-select>
+        </div>
+      </div>
+      <div class="input-field">
+        <input
+          name="city"
+          type="text"
+          formControlName="city"
+          placeholder="City/State"
+          (blur)="handleBlur('city')"
+          [class.error]="touched.city && errors.city"
+        />
+        <p>
+          {{ touched.city && errors.city ? errors.city : " " }}
+        </p>
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="payment-methods-header">
+        <h3>Saved Payments</h3>
+        <button (click)="handleAddPaymentMethod()">
+          <mat-icon>add</mat-icon>Add
+        </button>
+      </div>
+      <div class="payment-methods-container">
+        <div class="payment-methods">
+          @if(user.data.paymentMethods.length){ @for (paymentMethod of
+          user.data.paymentMethods; track paymentMethod; let i = $index) {
+          <div class="payment-method">
+            <div class="payment-method-info">
+              <img
+                [src]="getPaymentMethodIcon(paymentMethod.method)"
+                alt="payment method icon"
+              />
+              <p>
+                {{
+                  (paymentMethod.method === "card"
+                    ? paymentMethod.card?.number || " "
+                    : paymentMethod.method === "paypal"
+                    ? paymentMethod.paypal?.email || " "
+                    : paymentMethod.method === "mpesa"
+                    ? paymentMethod.mpesa?.number || " "
+                    : "Cash"
+                  ) | redactString : 3 : 4
+                }}
+              </p>
+            </div>
+            <button type="button" (click)="handleDeletePaymentMethod(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          } }@else {
+          <div class="payment-method-error">
+            <p>Add a payment method</p>
+            <button type="button" (click)="handleAddPaymentMethod()">
+              <mat-icon>add</mat-icon>Add
+            </button>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </form>
+  }@else {
+  <div class="profile-error">
+    <h3>Login to access your profile</h3>
+    <button>Login</button>
+  </div>
+  }
+</div>
+<app-payment-modal
+  [mode]="'profile'"
+  [type]="paymentModalType"
+  (onClose)="paymentModalType = null"
+></app-payment-modal>
+}

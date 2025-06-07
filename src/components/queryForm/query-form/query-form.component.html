@@ -1,0 +1,29 @@
+<div class="query-container" @leftIn @fadeInOut>
+  <div class="query-content">
+    <div style="width: 100%; height: 100%">
+      <app-date-range-cards></app-date-range-cards>
+    </div>
+  </div>
+  <div class="query-content">
+    <div style="width: 100%; height: 100%">
+      <app-persons-card type="adults"></app-persons-card>
+    </div>
+    <div style="width: 100%; height: 100%">
+      <app-persons-card type="children"></app-persons-card>
+    </div>
+  </div>
+  <div class="query-content promo-content">
+    <div style="width: 100%; flex-basis: 150px; flex-grow: 1">
+      <app-board-type-btn-group></app-board-type-btn-group>
+    </div>
+    <div class="promo-code-card-container">
+      <div style="width: 100%; flex: 1">
+        <app-promo-code-card></app-promo-code-card>
+      </div>
+      <button class="search-button" (click)="handleSubmit()">
+        <p>CHECK AVAILABILITY</p>
+        <mat-icon class="search-icon">keyboard_arrow_down</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

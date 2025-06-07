@@ -1,0 +1,99 @@
+@defer (on viewport) { @if(room){
+<div [class]="'room-card ' + mode">
+  <div class="left">
+    <app-image-component
+      [images]="room.images"
+      [mode]="mode"
+    ></app-image-component>
+  </div>
+  <div class="room-card-content middle">
+    <a [href]="room.location.link" target="_blank"
+      ><mat-icon>location_on</mat-icon>{{ room.location.title }}</a
+    >
+    <div class="title">
+      <h6>{{ room.count }} rooms available</h6>
+      <h3>{{ room.name }}</h3>
+      <app-rating [rating]="room.rating"></app-rating>
+    </div>
+    @if(mode !== 'snippet'){
+    <div class="description">
+      <h6>Description</h6>
+      <p>{{ room.description }}</p>
+    </div>
+    } @else {
+    <div class="price">
+      <p>Best Price Per Night On Bed & Breakfast</p>
+      <div>
+        <p>{{ room.price.currency | uppercase }}</p>
+        <h3>{{ room.price.amount | number : "1.0-0" }}</h3>
+      </div>
+    </div>
+    <div class="buttons">
+      <button (click)="handleExplore()">
+        EXPLORE ROOM
+        <div class="icon outline-icon"></div>
+      </button>
+      <button (click)="handleBook()" class="contained">
+        BOOK NOW
+        <mat-icon class="icon contained-icon">keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+    } @if(mode === 'full'){
+    <div class="amenities">
+      <h6>Amenities</h6>
+      <app-amenities [amenities]="room.amenities"></app-amenities>
+    </div>
+    }
+  </div>
+  @if(mode !== 'snippet'){
+  <div class="room-details right">
+    @if(mode !== 'full'){
+    <div class="amenities">
+      <h6>Amenities</h6>
+      <div style="width: 100%; height: 100%">
+        <app-amenities [amenities]="room.amenities"></app-amenities>
+      </div>
+    </div>
+    }@else {
+    <div class="breakdown">
+      @for(breakdown of room.price.breakdown; track breakdown.title){
+      <div class="breakdown-row">
+        <p>{{ breakdown.title }}</p>
+        <h6>
+          <span>{{ room.price.currency }}</span
+          >{{ breakdown.amount | number : "1.0-0" }}
+        </h6>
+      </div>
+      }
+    </div>
+    <div class="divider"></div>
+    <div class="divider absolute"></div>
+    }
+    <div class="price">
+      <p>Best Price Per Night On Bed & Breakfast</p>
+      <div>
+        <p>{{ room.price.currency | uppercase }}</p>
+        <h3>{{ room.price.amount | number : "1.0-0" }}</h3>
+      </div>
+    </div>
+    @if(mode === 'full'){
+    <div class="divider"></div>
+    }
+    <div class="buttons">
+      @if(mode === 'preview'){
+      <button (click)="handleExplore()">
+        EXPLORE ROOM
+        <div class="icon outline-icon"></div>
+      </button>
+      }
+      <button (click)="handleBook()" class="contained">
+        BOOK NOW
+        <mat-icon class="icon contained-icon">keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  }
+</div>
+} } @placeholder {
+<div class="room-card-placeholder"></div>
+}

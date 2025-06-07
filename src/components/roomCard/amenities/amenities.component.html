@@ -1,0 +1,8 @@
+<div class="amenities-container">
+  @for (amenity of amenities; track amenity) {
+  <div class="amenity-container">
+    <img [src]="icons[amenity]" [alt]="amenity" />
+    <p>{{ amenity | titlecase }}</p>
+  </div>
+  }
+</div>

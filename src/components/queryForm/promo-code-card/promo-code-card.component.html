@@ -1,0 +1,21 @@
+<div class="card promo-code-card" (click)="handleClick()">
+  @if(open){
+  <div class="input-container" @fadeIn>
+    <input
+      type="text"
+      [formControl]="promoCode"
+      placeholder="promotion code"
+      (click)="$event.stopPropagation()"
+    />
+    <button (click)="handleApply()">APPLY</button>
+  </div>
+  } @else {
+  <div class="promo-code-card-text" @fadeIn>
+    {{
+      queryForm.value.promoCode
+        ? queryForm.value.promoCode
+        : "HAVE A PROMOTION CODE?"
+    }}
+  </div>
+  }
+</div>

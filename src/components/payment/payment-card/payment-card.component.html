@@ -1,0 +1,119 @@
+@if(!status.on){ @if(mode === 'profile' || (mode ==='checkout' && step === 1)){
+<div class="payment-card-container">
+  <div class="payment-card-header">
+    <mat-icon>credit_card</mat-icon>
+    <h3>Enter your card details</h3>
+  </div>
+  <form [formGroup]="cardForm" (ngSubmit)="handleSubmit()">
+    <div class="input-field">
+      <input
+        placeholder="Cardholder Name"
+        name="cardHolderName"
+        formControlName="cardHolderName"
+        (blur)="handleBlur($event)"
+        [class.error]="touched.cardHolderName && errors.cardHolderName"
+      />
+      <p>
+        {{
+          touched.cardHolderName && errors.cardHolderName
+            ? errors.cardHolderName
+            : " "
+        }}
+      </p>
+    </div>
+    <div class="input-field">
+      <input
+        placeholder="Card Number"
+        name="cardNumber"
+        formControlName="cardNumber"
+        (blur)="handleBlur($event)"
+        [class.error]="touched.cardNumber && errors.cardNumber"
+      />
+      <p>
+        {{ touched.cardNumber && errors.cardNumber ? errors.cardNumber : " " }}
+      </p>
+    </div>
+    <div class="input-row">
+      <div class="input-field">
+        <input
+          placeholder="MM/YY"
+          name="cardExpirationDate"
+          formControlName="cardExpirationDate"
+          (blur)="handleBlur($event)"
+          [class.error]="
+            touched.cardExpirationDate && errors.cardExpirationDate
+          "
+        />
+        <p>
+          {{
+            touched.cardExpirationDate && errors.cardExpirationDate
+              ? errors.cardExpirationDate
+              : " "
+          }}
+        </p>
+      </div>
+      <div class="input-field">
+        <input
+          placeholder="CVV"
+          name="cardCvv"
+          formControlName="cardCvv"
+          (blur)="handleBlur($event)"
+          [class.error]="touched.cardCvv && errors.cardCvv"
+        />
+        <p>
+          {{ touched.cardCvv && errors.cardCvv ? errors.cardCvv : " " }}
+        </p>
+      </div>
+    </div>
+    <div class="payment-card-buttons">
+      @if(mode === 'checkout' && profileUserCards.length){
+      <button type="button" (click)="handleBack()" class="back-button">
+        <mat-icon>chevron_left</mat-icon>back
+      </button>
+      }@else {
+      <p></p>
+      }
+      <button
+        class="submit-button"
+        type="submit"
+        [disabled]="
+          errors.cardCvv ||
+          errors.cardExpirationDate ||
+          errors.cardNumber ||
+          errors.cardHolderName
+        "
+      >
+        <mat-icon>{{ mode === "checkout" ? "paid" : "add" }}</mat-icon>
+        {{ mode === "checkout" ? "Pay" : "Add" }}
+      </button>
+    </div>
+  </form>
+</div>
+} @if(mode ==='checkout' && step === 0) {
+<div class="saved-cards-container">
+  <h3>Saved Cards</h3>
+  <div class="saved-cards-list-container">
+    <div class="save-cards-list">
+      @for(method of profileUserCards; track method){ @if(method.card){
+      <button (click)="handleCardSelect(method.card)" class="saved-card-item">
+        <div class="card-info">
+          <mat-icon>credit_card</mat-icon>
+          <h4>{{ method.card.number | formatStringSpacing : 4 : "-" }}</h4>
+          <p>
+            <span>{{ method.card.name }}</span>
+            <span>exp: {{ method.card.expiry }}</span>
+          </p>
+        </div>
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+      } }
+    </div>
+  </div>
+  <button (click)="step = 1" class="skip-button">Use another card</button>
+</div>
+} }@else {
+<app-status
+  [status]="status"
+  (click)="this.status.action.callback()"
+></app-status>
+}

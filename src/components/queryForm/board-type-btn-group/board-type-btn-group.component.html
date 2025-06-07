@@ -1,0 +1,21 @@
+<div class="card board-type-btn-group" #group>
+  <div
+    class="outline"
+    [style.top.px]="outlineTop"
+    [style.height.px]="outlineHeight"
+  ></div>
+  @for (option of options; track option; let i = $index) {
+  <button
+    class="board-type-btn"
+    #btn
+    [class]="
+      'board-type-btn ' + (queryForm.value.boardType === option ? 'active' : '')
+    "
+    (click)="selectOption(option, btn)"
+  >
+    {{ option | uppercase }}
+  </button>
+  @if (i !== options.length - 1) {
+  <div class="divider"></div>
+  } }
+</div>

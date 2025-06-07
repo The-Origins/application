@@ -1,0 +1,56 @@
+@if(!status.on){ @if(step === 0){
+<div class="saved-payments-container">
+  <h3>Saved Emails</h3>
+  <div class="saved-payment-list-container">
+    <div class="saved-payment-list">
+      @for(payment of savedPayments; track payment){ @if(payment.paypal){
+      <button
+        class="saved-payment-item"
+        (click)="handleSelectPayment(payment.paypal.email)"
+      >
+        <div>
+          <mat-icon>mail</mat-icon>
+          <p>{{ payment.paypal.email }}</p>
+        </div>
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+      } }
+    </div>
+  </div>
+  <button class="skip-button" (click)="step = 1">Use a different email</button>
+</div>
+}@if(step === 1){
+<form class="payment-paypal" [formGroup]="form" (ngSubmit)="handleSubmit()">
+  <h3>
+    <mat-icon>mail</mat-icon
+    >{{ mode === "checkout" ? "Confirm your email" : "Add your email" }}
+  </h3>
+  <h6>Enter the email associated with your PayPal account</h6>
+  <div class="input-field">
+    <input
+      placeholder="Email"
+      type="email"
+      formControlName="email"
+      [class.error]="touched && error"
+      (blur)="touched = true"
+    />
+    <p>{{ touched && error ? error : " " }}</p>
+  </div>
+  <div class="button-container">
+    @if(mode === 'checkout' && savedPayments.length){
+    <button type="button" class="back-button" (click)="step = 0">Back</button>
+    }@else {
+    <p></p>
+    }
+    <button type="submit" [disabled]="error" class="submit-button">
+      <mat-icon>{{ mode === "checkout" ? "paid" : "add" }}</mat-icon
+      >{{ mode === "checkout" ? "Pay" : "Add" }}
+    </button>
+  </div>
+</form>
+} }@else {
+<app-status
+  [status]="status"
+  (click)="this.status.action.callback()"
+></app-status>
+}

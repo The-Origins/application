@@ -1,0 +1,32 @@
+{
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john.doe@example.com",
+  "phone": "0703471212",
+  "country": "Kenya",
+  "city": "Nairobi",
+  "paymentMethods": [
+    {
+      "method": "card",
+      "card": {
+        "name": "John Doe",
+        "number": "4111111111111111",
+        "expiry": "12/26"
+      }
+    },
+    {
+      "method": "mpesa",
+      "mpesa": {
+        "number": "0712345678"
+      }
+    },
+    {
+      "method": "paypal",
+      "paypal": {
+        "email": "john.doe@example.com"
+      }
+    }
+  ]
+}

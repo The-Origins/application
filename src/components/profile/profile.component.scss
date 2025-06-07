@@ -1,0 +1,427 @@
+.profile {
+  width: 100%;
+  display: grid;
+  grid-template-areas: "info header" "info form";
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+}
+
+h3 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.profile-loading {
+  grid-area: form;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-header {
+  grid-area: header;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.profile-info {
+  grid-area: info;
+  margin-top: auto;
+  width: 250px;
+  height: 100%;
+  max-height: 600px;
+  display: grid;
+  grid-template-rows: 3fr auto 1fr;
+  grid-template-areas: "head" "save" "logout";
+  gap: 20px;
+}
+
+.profile-info-header {
+  grid-area: head;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-info-header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-info-header mat-icon {
+  font-size: 150px;
+  width: 150px;
+  height: 150px;
+  color: var(--text-main);
+}
+
+.profile-info-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.profile-info-header p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text-main);
+}
+
+.profile-info button {
+  width: 100%;
+  height: fit-content;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-info .edit-button {
+  grid-area: save;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.profile-info .logout-button {
+  grid-area: logout;
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.profile-info .logout-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.profile-info .edit-button:hover {
+  border: 1px solid var(--primary-color-dark);
+  color: var(--primary-color-dark);
+  font-weight: 600;
+}
+
+.profile-info .edit-button:disabled {
+  border: 1px solid var(--text-main);
+  color: var(--text-main);
+  cursor: not-allowed;
+}
+
+.profile-form {
+  grid-area: form;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 40px;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.profile-card h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.profile-card:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.profile-card:hover h3 {
+  color: var(--primary-color-dark);
+}
+
+.input-field {
+  width: 100%;
+  height: 60px;
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0 20px;
+  border: 1px solid var(--divider-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+.input-field input:focus {
+  border: 1px solid var(--primary-color);
+}
+
+.input-field input::placeholder {
+  color: var(--text-main);
+}
+
+.input-field input.error {
+  border: 1px solid var(--error-main);
+}
+
+.input-field input.error::placeholder {
+  color: var(--error-main);
+}
+
+.input-field p {
+  font-size: 0.7rem;
+  min-height: 10px;
+  color: var(--error-main);
+  margin-left: 5px;
+}
+
+.payment-methods-container {
+  width: 100%;
+  height: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.payment-methods-header {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-methods-header button {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.payment-methods-header button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.payment-methods-header button mat-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.payment-methods-header h3 {
+  margin-left: 10px;
+}
+
+.payment-methods {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0px;
+}
+
+.payment-method {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 10px;
+  user-select: none;
+}
+
+.payment-method-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-method-info img {
+  width: clamp(30px, 2vw, 40px);
+  height: clamp(15px, 2vw, 20px);
+}
+
+.payment-method-info p {
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.payment-method button mat-icon {
+  font-size: clamp(16px, 2vw, 20px);
+  width: clamp(16px, 2vw, 20px);
+  height: clamp(16px, 2vw, 20px);
+}
+
+.payment-method button:hover {
+  color: var(--error-main);
+}
+
+.payment-method-error {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-method-error p {
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.payment-method-error button {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.payment-method-error button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+@media screen and (max-width: 1024px) {
+  .profile {
+    grid-template-areas: "header" "info" "form";
+    grid-template-columns: 1fr;
+  }
+
+  .profile-info {
+    position: sticky;
+    top: 0;
+    grid-template-rows: unset;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas: "head save logout";
+    width: 100%;
+    padding: 10px 0px;
+    z-index: 10;
+    background-color: var(--background-color);
+  }
+  .profile-info-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .profile-info-header mat-icon {
+    font-size: clamp(40px, 8vw, 70px);
+    width: clamp(40px, 8vw, 70px);
+    height: clamp(40px, 8vw, 70px);
+  }
+
+  .profile-info-header-text {
+    gap: 0px;
+    align-items: flex-start;
+  }
+
+  .profile-info-header-text h3 {
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
+  }
+
+  .profile-info-header-text p {
+    font-size: clamp(0.7rem, 2vw, 1rem);
+  }
+
+  .profile-info-actions {
+    flex: unset;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .profile-info button {
+    width: unset;
+    margin: unset;
+    padding: 10px;
+    gap: 5px;
+    font-size: 0.8rem;
+  }
+
+  .profile-info-actions .logout-button {
+    border-radius: 50%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .profile-form {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-info button mat-icon {
+    font-size: clamp(16px, 2vw, 20px);
+    width: clamp(16px, 2vw, 20px);
+    height: clamp(16px, 2vw, 20px);
+  }
+
+  .profile-info button p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile-info {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "head logout"
+      "save save";
+    gap: 10px;
+  }
+
+  .profile-info .edit-button {
+    width: 100%;
+    max-width: none;
+  }
+
+  .profile-info .edit-button p {
+    display: flex;
+  }
+
+  .payment-method-info p {
+    max-width: 100px;
+    overflow-x: hidden;
+  }
+}

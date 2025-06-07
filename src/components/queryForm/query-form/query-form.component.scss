@@ -1,0 +1,62 @@
+.query-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.query-content {
+  flex-basis: 320px;
+  flex-grow: 1;
+  min-height: 150px;
+  display: flex;
+  gap: 10px;
+}
+
+.promo-content {
+  flex-wrap: wrap;
+}
+
+.promo-code-card-container {
+  flex-basis: 150px;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-button {
+  width: 100%;
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-icon {
+  height: 0px;
+  display: flex;
+  align-items: flex-end;
+  transition: height 0.3s ease-in-out;
+}
+
+.search-button:hover .search-icon {
+  height: 20px;
+}
+
+.search-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+@media screen and (max-width: 1024px) {
+}

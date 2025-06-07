@@ -1,0 +1,116 @@
+.room-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "navigationButtons queryForm" "room room" "similarRooms similarRooms";
+  gap: 60px;
+}
+
+.query-form {
+  grid-area: queryForm;
+  width: 100%;
+}
+
+.room-card-container {
+  grid-area: room;
+}
+
+.similar-rooms-container {
+  grid-area: similarRooms;
+}
+
+.similar-rooms-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.similar-rooms-header h3 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: var(--primary-color);
+}
+
+.similar-rooms-header .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.similar-rooms-header .buttons button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.similar-rooms-header .buttons button:hover {
+  background-color: var(--primary-color);
+}
+
+.similar-rooms-header .buttons button mat-icon {
+  color: var(--primary-color);
+}
+
+.similar-rooms-header .buttons button:hover mat-icon {
+  color: white;
+}
+
+.similar-rooms-carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.similar-rooms-carousel {
+  white-space: nowrap;
+  transition: transform 0.5s ease;
+}
+
+.similar-rooms-carousel-item {
+  position: relative;
+  display: inline-block;
+  width: 90%;
+  border-right: 1px solid var(--divider-color);
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .room-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "navigationButtons" "queryForm" "room" "similarRooms";
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .room-container {
+    grid-template-areas: "navigationButtons" "room" "similarRooms" "queryForm";
+    gap: 20px;
+  }
+  .similar-rooms-header .buttons {
+    display: none;
+  }
+
+  .similar-rooms-container .divider {
+    display: none;
+  }
+
+  .similar-rooms-carousel {
+    white-space: unset;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: unset;
+  }
+
+  .similar-rooms-carousel-item {
+    width: 100%;
+    margin-right: 0px;
+    border-right: none;
+  }
+}

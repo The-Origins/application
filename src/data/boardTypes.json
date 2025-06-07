@@ -1,0 +1,44 @@
+{
+  "bed and breakfast": {
+    "id": "bed-and-breakfast",
+    "price": 0,
+    "breakdown": [
+      {
+        "title": "Breakfast",
+        "amount": 0
+      }
+    ]
+  },
+  "half board": {
+    "id": "half-board",
+    "price": 1000,
+    "breakdown": [
+      {
+        "title": "Breakfast",
+        "amount": 0
+      },
+      {
+        "title": "Lunch",
+        "amount": 1000
+      }
+    ]
+  },
+  "full board": {
+    "id": "full-board",
+    "price": 2000,
+    "breakdown": [
+      {
+        "title": "Breakfast",
+        "amount": 0
+      },
+      {
+        "title": "Lunch",
+        "amount": 1000
+      },
+      {
+        "title": "Dinner",
+        "amount": 1000
+      }
+    ]
+  }
+}

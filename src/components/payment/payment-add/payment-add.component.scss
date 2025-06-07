@@ -1,0 +1,47 @@
+.payment-add {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.payment-add-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  background-color: var(--white-color);
+}
+
+.payment-add-button:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.payment-add-button:hover p {
+  color: black;
+}
+
+.payment-add-button div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-add-button p {
+  margin: 2px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.payment-add-button img {
+  width: 60px;
+  height: 40px;
+}

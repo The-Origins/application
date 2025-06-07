@@ -1,0 +1,126 @@
+@if(!status.on){
+<div class="payment-mpesa">
+  @if(step === 0){
+  <div class="saved-payment-mpesa">
+    <h3>Send payment request</h3>
+    <div class="saved-payment-list-container">
+      <div class="saved-payment-list">
+        @for(payment of savedPayments; track payment){ @if(payment.mpesa){
+        <button
+          (click)="handleSelectPayment(payment.mpesa.number)"
+          class="saved-payment-item"
+        >
+          <div>
+            <mat-icon>smartphone</mat-icon>
+            <p>SEND TO {{ payment.mpesa.number }}</p>
+          </div>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+        } }
+      </div>
+    </div>
+    <button class="skip-button" (click)="step = 1">Use another method</button>
+  </div>
+  } @if(step === 1){
+  <div class="payment-mpesa-select">
+    <img src="assets/icons/mpesa.svg" alt="mpesa" />
+    <button (click)="step = 2">
+      <mat-icon>password</mat-icon>Pay using pay bill
+    </button>
+    <button (click)="step = 3">
+      <mat-icon>smartphone</mat-icon>Send payment request
+    </button>
+    @if(savedPayments.length){
+    <button class="back-button" (click)="step = 0">Back</button>
+    }
+  </div>
+  } @if(step === 2) {
+  <form
+    class="payment-mpesa-paybill"
+    [formGroup]="form"
+    (ngSubmit)="handleVerifyCode()"
+  >
+    <div class="paybill">
+      <p>PAYBILL</p>
+      <h3>154666</h3>
+      <div class="divider"></div>
+      <p>ACCOUNT NUMBER</p>
+      <h3>BQCKMRW</h3>
+    </div>
+    <p>
+      Send payment to the paybill number above then verify the mpesa code below
+    </p>
+    <div class="code">
+      <div class="input-field">
+        <input
+          placeholder="e.g SIF5NK84DH ..."
+          formControlName="code"
+          required="true"
+          [class.error]="touched.code && errors.code"
+          (blur)="handleBlur('code')"
+        />
+        <p>{{ touched.code && errors.code ? errors.code : " " }}</p>
+      </div>
+      <div class="code-button-container">
+        <button class="submit-button" type="submit" [disabled]="errors.code">
+          Verify
+        </button>
+        <button class="cancel-button" (click)="handleCancel()">cancel</button>
+      </div>
+    </div>
+  </form>
+  } @if(step === 3) {
+  <form
+    class="payment-mpesa-request"
+    [formGroup]="form"
+    (ngSubmit)="handleRequest()"
+  >
+    <h3>
+      <mat-icon>smartphone</mat-icon>
+      {{ mode === "profile" ? "Enter" : "Confirm" }} phone number
+    </h3>
+    @if(mode === 'profile'){
+    <h6>Enter a valid mpesa phone number that can receive payment requests</h6>
+    }@else {
+    <h6>A payment request will be sent to the phone number below</h6>
+    }
+    <div class="input-field">
+      <input
+        formControlName="phone"
+        required="true"
+        (blur)="handleBlur('phone')"
+        [class.error]="touched.phone && errors.phone"
+      />
+      <p>
+        {{
+          touched.phone && errors.phone
+            ? errors.phone.replace("selected country", "mpesa")
+            : " "
+        }}
+      </p>
+    </div>
+    <div class="request-button-container">
+      @if(mode === 'checkout'){
+      <button type="button" class="cancel-button" (click)="handleCancel()">
+        Cancel
+      </button>
+      <button class="submit-button" type="submit" [disabled]="errors.phone">
+        Send request
+      </button>
+      } @if(mode === 'profile'){
+      <p></p>
+      <button class="submit-button" type="submit" [disabled]="errors.phone">
+        <mat-icon>add_circle_outline</mat-icon>
+        Add
+      </button>
+      }
+    </div>
+  </form>
+  }
+</div>
+}@else {
+<app-status
+  [status]="status"
+  (click)="this.status.action.callback()"
+></app-status>
+}

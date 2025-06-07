@@ -1,0 +1,16 @@
+<div class="rating-container">
+  @for (i of [1, 2, 3, 4, 5]; track i) {
+  <div class="rating-star">
+    <img
+      [src]="
+        i <= rating
+          ? '/assets/images/star.png'
+          : i <= rating + 1
+          ? '/assets/images/star-half.png'
+          : '/assets/images/star-empty.png'
+      "
+      alt="rating star"
+    />
+  </div>
+  }
+</div>

@@ -1,0 +1,189 @@
+.booking-room {
+  width: 100%;
+  position: relative;
+  gap: 20px;
+  padding: 30px 10px;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "id content total";
+}
+
+.booking-room-content {
+  grid-area: content;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex-basis: 450px;
+  flex-grow: 1;
+}
+
+.remove-room-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-room-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.remove-room-button:hover mat-icon {
+  color: var(--error-main);
+}
+
+.card:hover {
+  transform: unset;
+}
+
+.text-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.text-card h3 {
+  color: var(--primary-color);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+}
+
+.text-card p {
+  color: var(--text-main);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.text-card.id {
+  grid-area: id;
+  justify-content: flex-start;
+}
+
+.text-card.total {
+  grid-area: total;
+  justify-content: flex-end;
+}
+
+.persons-card {
+  height: unset;
+  flex-basis: 200px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.persons-card h6 {
+  color: var(--text-main);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-weight: 500;
+}
+
+.persons-card p {
+  height: clamp(30px, 5vw, 50px);
+  width: clamp(30px, 5vw, 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--divider-color);
+  color: var(--text-main);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+}
+
+.persons-button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.divider.vertical {
+  height: 30px;
+  width: 0.5px;
+}
+
+.persons-button {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.persons-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.persons-button:disabled {
+  background-color: transparent;
+  color: var(--divider-color);
+}
+
+.room-type-card {
+  height: unset;
+  flex-basis: 200px;
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.room-type-card p {
+  color: var(--text-main);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 500;
+}
+
+.select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.select-options button {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  user-select: none;
+}
+
+.select-options button.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.select-options button:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+@media screen and (max-width: 1200px) {
+  .booking-room {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "id total" "content content";
+  }
+}

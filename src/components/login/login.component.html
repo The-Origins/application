@@ -1,0 +1,27 @@
+<div class="login-container" @topIn @fadeInOut>
+  <div class="logo-container">
+    <img src="/assets/icons/logo.svg" alt="logo" />
+    <h3>LETS GET YOU STARTED</h3>
+  </div>
+  <div class="divider-container">
+    <div class="dash"></div>
+    <p>Sign In</p>
+    <div class="dash"></div>
+  </div>
+  <div class="icon-button-container">
+    @if(!isLoading){
+    <button class="icon-button google" (click)="handleLogin('google')">
+      <img src="/assets/images/google.png" alt="google" />
+    </button>
+    <button class="icon-button apple" (click)="handleLogin('apple')">
+      <img src="/assets/images/apple.png" alt="apple" />
+    </button>
+    <button class="icon-button facebook" (click)="handleLogin('facebook')">
+      <img src="/assets/images/facebook.png" alt="facebook" />
+    </button>
+    }@else {
+    <app-loading-ripple></app-loading-ripple>
+    }
+  </div>
+  <button class="back-button" (click)="handleBack()">Back</button>
+</div>

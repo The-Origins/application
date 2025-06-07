@@ -1,0 +1,42 @@
+<form [formGroup]="queryForm">
+  <mat-date-range-input class="range-inputs" [rangePicker]="picker">
+    <input matStartDate formControlName="checkIn" placeholder="Start date" />
+    <input matEndDate formControlName="checkOut" placeholder="End date" />
+  </mat-date-range-input>
+  <mat-date-range-picker #picker class="picker"></mat-date-range-picker>
+
+  <div class="picker-buttons">
+    <button
+      (click)="picker.open()"
+      [class]="
+        'card picker-button ' + (!queryForm.value.checkIn ? 'empty' : '')
+      "
+    >
+      <h6>Check In</h6>
+      @if (queryForm.value.checkIn) {
+      <h4>{{ queryForm.value.checkIn | date : "dd" }}</h4>
+      <p>{{ queryForm.value.checkIn | date : "MMM YYYY" }}</p>
+      }@else{
+      <div>
+        <p>Select</p>
+      </div>
+      }
+    </button>
+    <button
+      (click)="picker.open()"
+      [class]="
+        'card picker-button ' + (!queryForm.value.checkOut ? 'empty' : '')
+      "
+    >
+      <h6>Check Out</h6>
+      @if (queryForm.value.checkOut) {
+      <h4>{{ queryForm.value.checkOut | date : "dd" }}</h4>
+      <p>{{ queryForm.value.checkOut | date : "MMM YYYY" }}</p>
+      }@else{
+      <div>
+        <p>Select</p>
+      </div>
+      }
+    </button>
+  </div>
+</form>

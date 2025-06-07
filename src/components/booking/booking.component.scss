@@ -1,0 +1,150 @@
+.booking-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.booking-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navigation-buttons {
+  margin-bottom: 70px;
+  gap: 5px;
+}
+
+.booking-header-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-details {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.booking-detail-container {
+  flex-basis: 300px;
+  flex-grow: 1;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.booking-detail {
+  flex-basis: 150px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  gap: 10px;
+}
+
+.booking-detail h4 {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-weight: 500;
+  margin: 0;
+}
+
+.booking-detail h4 mat-icon {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-detail p {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: var(--primary-color);
+  font-weight: 300;
+  margin: 0;
+}
+
+.booking-header-content-description {
+  text-align: center;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+  font-weight: 300;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.booking-rooms {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-rooms-buttons {
+  position: sticky;
+  bottom: 0;
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: white;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.booking-rooms-buttons button {
+  width: 300px;
+  height: 70px;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.add-button {
+  color: var(--primary-color);
+}
+
+.proceed-button {
+  background-color: var(--primary-color);
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+}
+
+.proceed-button mat-icon {
+  width: 0px;
+  display: flex;
+  justify-content: flex-end;
+  transition: width 0.3s ease;
+}
+
+.proceed-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.proceed-button:hover mat-icon {
+  width: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .booking-header {
+    flex-direction: column;
+  }
+  .navigation-buttons {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .proceed-button mat-icon {
+    display: none;
+  }
+}

@@ -1,0 +1,108 @@
+@if(roomInfo && room && roomCountId){
+<div class="booking-room" @leftIn @leftOut @fadeInOut>
+  @if(index > 0){
+  <button class="remove-room-button" (click)="handleRemoveRoom()">
+    <mat-icon>delete</mat-icon>
+  </button>
+  }
+  <div class="text-card id">
+    <h3>Room</h3>
+    <h3>{{ index + 1 }}</h3>
+  </div>
+  <div class="booking-room-content">
+    <div class="cards-container">
+      <div class="card persons-card">
+        <h6>Adults</h6>
+        <p>{{ roomInfo.adults }}</p>
+        <div class="persons-button-container">
+          <button
+            class="persons-button"
+            (click)="decrement('adults')"
+            [disabled]="roomInfo.adults <= 1"
+          >
+            <mat-icon class="persons-button-icon">remove</mat-icon>
+          </button>
+          <div class="divider vertical"></div>
+          <button
+            class="persons-button"
+            (click)="increment('adults')"
+            [disabled]="roomInfo.adults >= 100"
+          >
+            <mat-icon class="persons-button-icon">add</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="card persons-card">
+        <h6>Children</h6>
+        <p>{{ roomInfo.children }}</p>
+        <div class="persons-button-container">
+          <button
+            class="persons-button"
+            (click)="decrement('children')"
+            [disabled]="roomInfo.children <= 0"
+          >
+            <mat-icon class="persons-button-icon">remove</mat-icon>
+          </button>
+          <div class="divider vertical"></div>
+          <button
+            class="persons-button"
+            (click)="increment('children')"
+            [disabled]="roomInfo.children >= 100"
+          >
+            <mat-icon class="persons-button-icon">add</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="cards-container">
+      <div class="card persons-card">
+        <h6>Infants</h6>
+        <p>{{ roomInfo.infants }}</p>
+        <div class="persons-button-container">
+          <button
+            class="persons-button"
+            (click)="decrement('infants')"
+            [disabled]="roomInfo.infants <= 0"
+          >
+            <mat-icon class="persons-button-icon">remove</mat-icon>
+          </button>
+          <div class="divider vertical"></div>
+          <button
+            class="persons-button"
+            (click)="increment('infants')"
+            [disabled]="roomInfo.infants >= 100"
+          >
+            <mat-icon class="persons-button-icon">add</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="card room-type-card" (click)="toggleSelect()">
+        <p>{{ roomInfo.type }}</p>
+        @if(selectOpen){
+        <mat-icon>expand_less</mat-icon>
+        <div
+          class="select-options"
+          @topDownGrow
+          @fadeInOut
+          appClickAway
+          (clickAway)="toggleSelect()"
+        >
+          @for(type of roomTypes; track type){
+          <button
+            (click)="handleRoomTypeChange(type)"
+            [class.active]="roomInfo.type === type"
+          >
+            {{ type }}
+          </button>
+          }
+        </div>
+        }@else {<mat-icon>expand_more</mat-icon>}
+      </div>
+    </div>
+  </div>
+  <div class="text-card total">
+    <p>{{ room.price?.currency }}</p>
+    <h3>{{ roomInfo.price | number : "1.0-0" }}</h3>
+  </div>
+</div>
+}

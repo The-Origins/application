@@ -1,0 +1,309 @@
+.payment-mpesa {
+  min-height: 40vh;
+  max-height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+p {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+.payment-mpesa-select {
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-mpesa-select img {
+  width: 200px;
+  height: 80px;
+}
+
+.payment-mpesa-select button {
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--success-dark);
+  color: var(--success-dark);
+  transition: background-color 0.3s ease;
+}
+
+.payment-mpesa-select button:hover {
+  background-color: var(--success-dark);
+  color: white;
+}
+
+.payment-mpesa-select .back-button {
+  width: fit-content;
+  padding: 0px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid transparent;
+  color: var(--text-main);
+}
+
+.payment-mpesa-select .back-button:hover {
+  background-color: transparent;
+  border-bottom: 1px solid var(--text-main);
+  color: var(--text-main);
+}
+
+.payment-mpesa-paybill {
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.payment-mpesa-paybill p {
+  font-size: 0.8rem;
+  color: var(--text-main);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.paybill {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  align-items: center;
+  height: 100px;
+  width: 200px;
+  border-radius: 10px;
+  border: 1px solid var(--success-dark);
+  color: var(--success-dark);
+}
+
+.paybill .divider {
+  width: 100%;
+  height: 0.5px;
+  background-color: var(--success-dark);
+}
+
+.paybill p {
+  color: var(--success-dark);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.paybill h3 {
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.code {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-field {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--divider-color);
+  outline: none;
+}
+
+.input-field input:focus {
+  border: 1px solid var(--primary-color);
+}
+
+.input-field input.error {
+  border: 1px solid var(--error-main);
+}
+
+.input-field p {
+  min-height: 10px;
+  color: var(--error-main);
+  font-size: 0.7rem;
+  margin-left: 5px;
+}
+
+.code-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.submit-button {
+  padding: 5px 20px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.submit-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.submit-button:disabled {
+  background-color: var(--divider-color);
+  cursor: not-allowed;
+}
+
+.code-button-container .cancel-button {
+  color: var(--text-main);
+  font-size: 0.8rem;
+  padding: 1px;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+
+.code-button-container .cancel-button:hover {
+  border-bottom: 1px solid var(--text-main);
+}
+
+.payment-mpesa-request {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.payment-mpesa-request h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.payment-mpesa-request h6 {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.payment-mpesa-request .input-field {
+  width: 100%;
+}
+
+.request-button-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.request-button-container .submit-button {
+  justify-self: flex-end;
+}
+
+.request-button-container .cancel-button {
+  justify-self: flex-start;
+  color: var(--text-main);
+  padding: 4px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--divider-color);
+}
+
+.request-button-container .cancel-button:hover {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.saved-payment-mpesa {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+}
+
+.saved-payment-mpesa h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.saved-payment-list-container {
+  width: 100%;
+  min-height: 25vh;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.saved-payment-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.saved-payment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--primary-color);
+  transition: background-color 0.3s ease;
+  color: var(--text-main);
+}
+
+.saved-payment-item:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.saved-payment-item div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.saved-payment-item div p {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.skip-button {
+  color: var(--text-main);
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--divider-color);
+  margin-left: 10px;
+}
+
+.skip-button:hover {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}

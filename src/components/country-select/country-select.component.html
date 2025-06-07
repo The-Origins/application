@@ -1,0 +1,44 @@
+<div class="country-select">
+  <div
+    class="input-row"
+    (click)="handleOpen()"
+    [class.open]="open"
+    [class.error]="touched && error"
+  >
+    @if (country) {
+    <img [src]="getImageUrl(country)" [alt]="country" />
+    } @if (open) {
+    <div
+      class="country-select-input"
+      appClickAway
+      (clickAway)="handleClickAway()"
+    >
+      <input
+        #input
+        type="text"
+        [formControl]="search"
+        placeholder="Select country*"
+        (blur)="handleBlur()"
+        [matAutocomplete]="auto"
+        autocomplete="off"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="handleSelect($event.option.value)"
+      >
+        @for (country of filteredCountries | async; track country) {
+        <mat-option [value]="country" aria-selected="true">
+          <img [src]="getImageUrl(country)" />
+          <span>{{ country }}</span>
+        </mat-option>
+        }
+      </mat-autocomplete>
+    </div>
+    <mat-icon>keyboard_arrow_up</mat-icon>
+    }@else {
+    <p class="country-select-title">{{ country || "Select country*" }}</p>
+    <mat-icon>keyboard_arrow_down</mat-icon>
+    }
+  </div>
+  <p>{{ touched && error ? error : " " }}</p>
+</div>

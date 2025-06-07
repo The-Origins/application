@@ -1,0 +1,6 @@
+@if(status.on) {
+<app-status
+  [status]="status"
+  (click)="this.status.action.callback()"
+></app-status>
+}

@@ -1,0 +1,44 @@
+@if(type) {
+<div class="payment-modal-container">
+  <div role="dialog" class="payment-modal">
+    @if(!isStatus) {
+    <div class="payment-modal-header">
+      <button (click)="onClose.emit()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    } @if(type === 'card') {
+    <app-payment-card
+      [mode]="mode"
+      (close)="onClose.emit()"
+      (isStatus)="isStatus = $event"
+    ></app-payment-card>
+    } @if(type === 'paypal') {
+    <app-payment-paypal
+      [mode]="mode"
+      (close)="onClose.emit()"
+      (isStatus)="isStatus = $event"
+    ></app-payment-paypal>
+    } @if(type === 'mpesa') {
+    <app-payment-mpesa
+      [mode]="mode"
+      (close)="onClose.emit()"
+      (isStatus)="isStatus = $event"
+    ></app-payment-mpesa>
+    } @if(type === 'cash') {
+    <app-payment-cash
+      [mode]="mode"
+      (close)="onClose.emit()"
+      (isStatus)="isStatus = $event"
+    ></app-payment-cash>
+    } @if(type === 'add') {
+    <app-payment-add
+      [mode]="mode"
+      (close)="onClose.emit()"
+      (isStatus)="isStatus = $event"
+      (switch)="handleSwitchType($event)"
+    ></app-payment-add>
+    }
+  </div>
+</div>
+}

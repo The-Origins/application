@@ -1,0 +1,37 @@
+.promo-code-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+}
+
+.promo-code-card-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container input {
+  height: 25px;
+  width: 125px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid var(--divider-color);
+  text-align: center;
+}
+
+.input-container input::placeholder {
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.input-container button {
+  font-size: 0.7rem;
+  border-radius: 0 5px 5px 0;
+  border: 1px solid var(--divider-color);
+  height: 25px;
+  padding: 0 10px;
+}

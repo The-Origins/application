@@ -1,0 +1,33 @@
+<div class="status-container">
+  @if(status.type !== 'loading'){
+  <button class="status-close" mat-icon-button (click)="handleClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+  }
+  <div class="status-content">
+    <div class="status-icon">
+      @if(status.type === 'success'){
+      <mat-icon style="color: var(--primary-color)">check_circle</mat-icon>
+      } @if(status.type === 'error'){
+      <mat-icon style="color: var(--error-main)">error</mat-icon>
+      } @if(status.type === 'info'){
+      <mat-icon style="color: var(--info-main)">info</mat-icon>
+      } @if(status.type === 'warning'){
+      <mat-icon style="color: var(--warning-main)">warning</mat-icon>
+      } @if(status.type === 'loading'){
+      <app-loading-ripple></app-loading-ripple>
+      }
+    </div>
+    @if(status.type !== 'loading'){
+    <h3 class="status-title">{{ status.title | titlecase }}</h3>
+    }
+    <p class="status-message">{{ status.message }}</p>
+    @if(status.type !== 'loading' ){
+    <div class="status-action">
+      <button (click)="handleClick()">
+        {{ status.action.title || "OK" | uppercase }}
+      </button>
+    </div>
+    }
+  </div>
+</div>

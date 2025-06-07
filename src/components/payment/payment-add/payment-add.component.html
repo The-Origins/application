@@ -1,0 +1,24 @@
+<div class="payment-add">
+  <h3>Choose Payment Method</h3>
+  <button class="payment-add-button" (click)="handleSwitch('card')">
+    <div>
+      <img [src]="getPaymentMethodIcon('card')" alt="card" />
+      <p>Add new card</p>
+    </div>
+    <mat-icon>add</mat-icon>
+  </button>
+  <button class="payment-add-button" (click)="handleSwitch('paypal')">
+    <div>
+      <img [src]="getPaymentMethodIcon('paypal')" alt="paypal" />
+      <p>Add new paypal email</p>
+    </div>
+    <mat-icon>add</mat-icon>
+  </button>
+  <button class="payment-add-button" (click)="handleSwitch('mpesa')">
+    <div>
+      <img [src]="getPaymentMethodIcon('mpesa')" alt="mpesa" />
+      <p>Add new mpesa number</p>
+    </div>
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

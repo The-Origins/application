@@ -1,0 +1,88 @@
+<div class="card persons-card" (click)="handleClick()">
+  <h6>{{ type | titlecase }}</h6>
+  @if(!open){
+  <div class="card-content" @fadeIn>
+    <h4>
+      {{
+        type === "adults"
+          ? queryForm.value.adults
+          : queryForm.value.children + queryForm.value.infants
+      }}
+    </h4>
+    <p>
+      {{ type === "adults" ? "12 yrs +" : "< 11 yrs" }}
+    </p>
+  </div>
+  } @else {
+  <form [formGroup]="changesForm" (ngSubmit)="handleSubmit()" @fadeIn>
+    <div class="input-container">
+      @if(type === "adults") {
+      <div class="form-row">
+        <label for="adults">12+ years</label>
+        <div (click)="$event.stopPropagation()">
+          <button
+            type="button"
+            class="icon-button left"
+            (click)="decrement('adults')"
+          >
+            -
+          </button>
+          <input formControlName="adults" />
+          <button
+            type="button"
+            class="icon-button"
+            (click)="increment('adults')"
+          >
+            +
+          </button>
+        </div>
+      </div>
+      } @else if(type === "children") {
+      <div class="form-row">
+        <label for="infants">0 - 4 years</label>
+        <div (click)="$event.stopPropagation()">
+          <button
+            type="button"
+            class="icon-button left"
+            (click)="decrement('infants')"
+          >
+            -
+          </button>
+          <input formControlName="infants" />
+          <button
+            type="button"
+            class="icon-button"
+            (click)="increment('infants')"
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="children">5 - 11 years</label>
+        <div (click)="$event.stopPropagation()">
+          <button
+            type="button"
+            class="icon-button left"
+            (click)="decrement('children')"
+          >
+            -
+          </button>
+          <input formControlName="children" />
+          <button
+            type="button"
+            class="icon-button"
+            (click)="increment('children')"
+          >
+            +
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="btn-row">
+      <button class="button" type="submit">apply</button>
+    </div>
+  </form>
+  }
+</div>

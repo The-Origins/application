@@ -1,0 +1,51 @@
+@if(room){
+<div class="room-container" @bottomIn @fadeInOut>
+  <div class="navigation-buttons">
+    <button class="navigation-button" (click)="handleHome()">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button class="navigation-button" (click)="handleBack()">
+      <mat-icon>keyboard_return</mat-icon>
+    </button>
+  </div>
+  <div class="query-form">
+    <app-query-form (onSubmit)="goToResultsPage()" />
+  </div>
+  <div class="room-card-container">
+    <div class="divider"></div>
+    <div class="room-card">
+      <app-room-card [room]="room" [mode]="'full'" />
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="similar-rooms-container">
+    <div class="similar-rooms-header">
+      <h3>More Offers</h3>
+      <div class="buttons">
+        <button (click)="previousSimilarRoom()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <button (click)="nextSimilarRoom()">
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="similar-rooms-carousel-container">
+      <div
+        class="similar-rooms-carousel"
+        [style.transform]="`translateX(-${similarRoomsIndex * 90}%)`"
+      >
+        @for(room of similarRooms; track room.id){
+        <div class="similar-rooms-carousel-item">
+          <app-room-card [room]="room" [mode]="'snippet'" />
+        </div>
+        }
+      </div>
+    </div>
+    <div class="divider"></div>
+  </div>
+</div>
+}@else {
+<p>Loading...</p>
+}

@@ -1,0 +1,64 @@
+@if(bookingForm && room){
+<div class="booking-container" @leftIn @fadeInOut>
+  <div class="booking-header">
+    <div class="navigation-buttons">
+      <button class="navigation-button" (click)="handleHome()">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button class="navigation-button" (click)="handleBack()">
+        <mat-icon>keyboard_return</mat-icon>
+      </button>
+    </div>
+    <div class="booking-header-content">
+      <div class="booking-details">
+        <div class="booking-detail-container">
+          <div class="booking-detail">
+            <h4><mat-icon>meeting_room</mat-icon> Room</h4>
+            <p>{{ bookingForm.room.name }}</p>
+          </div>
+          <div class="booking-detail">
+            <h4><mat-icon>event</mat-icon>Check In</h4>
+            <p>{{ bookingForm.checkIn | date : "EEE, MMM d, yyyy" }}</p>
+          </div>
+        </div>
+        <div class="booking-detail-container">
+          <div class="booking-detail">
+            <h4><mat-icon>event</mat-icon>Check Out</h4>
+            <p>{{ bookingForm.checkOut | date : "EEE, MMM d, yyyy" }}</p>
+          </div>
+          <div class="booking-detail">
+            <h4><mat-icon>hotel</mat-icon> Board</h4>
+            <p>{{ bookingForm.boardType | titlecase }}</p>
+          </div>
+        </div>
+      </div>
+      <p class="booking-header-content-description">
+        Change the room preferences below and the pricing will update
+        accordingly
+      </p>
+    </div>
+  </div>
+
+  <div class="booking-rooms">
+    @for(bookingFormRoom of bookingFormRooms; track bookingFormRoom.index){
+    <app-booking-room
+      [room]="{ id: room.id, price: room.price, types: room.types }"
+      [roomCountId]="bookingFormRoom.roomCountId"
+      [roomTypes]="roomTypes || []"
+      [index]="bookingFormRoom.index"
+    />
+    }
+    <div class="booking-rooms-buttons">
+      <button class="card add-button" (click)="handleAddRoom()">
+        <mat-icon>add</mat-icon>
+        Add Room
+      </button>
+      <button class="card proceed-button" (click)="handleProceed()">
+        Proceed ({{ bookingForm.price.currency
+        }}{{ bookingForm.price.total | number : "1.0-0" }})
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+}

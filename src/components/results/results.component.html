@@ -1,0 +1,38 @@
+@if(isPage){
+<app-header></app-header>
+}
+<div class="results-container">
+  @if(isPage){
+  <div class="navigation-buttons">
+    <button class="navigation-button" (click)="handleHome()">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button class="navigation-button" (click)="handleBack()">
+      <mat-icon>keyboard_return</mat-icon>
+    </button>
+  </div>
+  <div class="query-form">
+    <app-query-form />
+  </div>
+  } @if(isLoading){
+  <div class="loading-container">
+    <app-loading-ripple width="100px" height="100px"></app-loading-ripple>
+  </div>
+  }@else {@if(results){
+  <div class="results-container">
+    <div class="divider"></div>
+    @for(result of results; track result.id){
+    <app-room-card [room]="result"></app-room-card>
+    <div class="divider"></div>
+    }
+  </div>
+  }@else{
+  <div class="results-container-error">
+    <mat-icon>search_off</mat-icon>
+    <p>No results found</p>
+  </div>
+  }}
+</div>
+@if(isPage){
+<app-footer></app-footer>
+}
