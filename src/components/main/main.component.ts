@@ -21,7 +21,6 @@ import { fadeInOut, bottomIn } from '../../animations';
 })
 export class MainComponent {
   handleQuerySubmit() {
-    console.log('query submitted');
     window.scrollTo({
       top: 500,
       behavior: 'smooth',
